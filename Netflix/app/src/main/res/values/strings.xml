@@ -2,4 +2,8 @@
     <string name="app_name">Netflix</string>
     <string name="season_episode">S1:E2</string>
     <string name="name_serie">House of Cards</string>
+    <string name="menu_mensagem">Menu mensagem</string>
+    <string name="menu_volume">Menu Volume</string>
+    <string name="menu_avalia_es">Menu Avaliações</string>
+    <string name="menu_epis_dios">Menu episódios</string>
 </resources>
