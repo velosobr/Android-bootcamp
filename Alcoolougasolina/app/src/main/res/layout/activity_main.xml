@@ -20,6 +20,7 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:padding="20dp"
         android:text="@string/explicacao"
         android:textColor="@android:color/darker_gray"
@@ -34,6 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/precoAlcool"
+            android:inputType="numberDecimal"
             android:padding="10dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -47,6 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/precoGasolina"
+            android:inputType="numberDecimal"
             android:padding="10dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -55,6 +58,7 @@
         android:id="@+id/idBtnCalcular"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="calcularPreco"
         android:padding="20dp"
         android:text="@string/btnCalcular" />
 
@@ -62,6 +66,7 @@
         android:id="@+id/idResultado"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:padding="20dp"
         android:text="@string/txtResultado"
         android:textStyle="bold" />
