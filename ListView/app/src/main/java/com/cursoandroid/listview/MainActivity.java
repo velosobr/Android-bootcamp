@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String valorSelecionado = listLocais.getItemAtPosition(position).toString();
                 Toast.makeText(getApplicationContext(), valorSelecionado, Toast.LENGTH_LONG).show();
+                System.out.println("TODO");
             }
         });
     }
