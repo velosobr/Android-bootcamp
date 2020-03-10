@@ -1,4 +1,4 @@
-package com.cursoandroid.organizze;
+package com.cursoandroid.slider;
 
 import androidx.appcompat.app.AppCompatActivity;
 
