@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">Uatzap</string>
+    <string name="app_name">WhatsApp</string>
+    <string name="digite_nome">"Digite seu nome"</string>
+    <string name="digite_email">Digite seu e-mail</string>
+    <string name="digite_senha">Digite sua senha</string>
+    <string name="botao_logar">Logar</string>
+    <string name="nao_tem_conta">Não tem conta? Cadastre-se</string>
+    <string name="cadastrar">"Cadastrar"</string>
+    <string name="icone_de_cadastro">icone de cadastro</string>
 </resources>
