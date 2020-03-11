@@ -1,7 +1,10 @@
 package com.cursoandroid.organizze.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.cursoandroid.organizze.R;
 
 public class CadastroActivity extends AppCompatActivity {
 

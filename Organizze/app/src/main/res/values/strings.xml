@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Organizze</string>
+    <string name="text_Intro_1_1">Organize suas contas \n de onde estiver</string>
+    <string name="text_Intro_1_2">Simples, fácil de usar e grátis</string>
+    <string name="text_Intro_2_1">Saiba para onde está indo seu dinheiro</string>
+    <string name="text_Intro_3_1">Nunca mais esqueça de \n pagar uma conta</string>
+    <string name="text_Intro_3_2">Receba alertas quando quiser</string>
+    <string name="text_Intro_4_1">Tudo organizado, no \n celular ou computador</string>
+    <string name="text_Intro_4_2">Use no seu smartphone e acessando o organizze pelo site</string>
+    <string name="text_Intro_5_1">Crie sua conta grátis</string>
+    <string name="text_Intro_5_2">Junte-se a mais de meio milhão \n de pessoas e comece já</string>
+    <string name="text_Intro_5_3">Já tenho conta</string>
+    <string name="btn_Intro_5">Cadastre-se</string>
+    <string name="btn_actv_cadastrar">Cadastrar</string>
+    <string name="btn_actv_entrar">Entrar</string>
 </resources>
