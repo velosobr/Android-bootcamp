@@ -1,0 +1,2 @@
+rootProject.name='Coroutine Beginner Example'
+include ':app'
