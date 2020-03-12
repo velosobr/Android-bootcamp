@@ -30,16 +30,16 @@ class LoginActivity : AppCompatActivity() {
         this.autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao()
     }
 
-//    override fun onStart() {
-//        super.onStart()
-//
-//        var usuarioAtual: FirebaseUser? = autenticacao.currentUser
-//        if (usuarioAtual != null) {
-//            abrirTelaPrincipal()
-//        }
-//
-//
-//    }
+    override fun onStart() {
+        super.onStart()
+
+        var usuarioAtual: FirebaseUser? = autenticacao.currentUser
+        if (usuarioAtual != null) {
+            abrirTelaPrincipal()
+        }
+
+
+    }
 
     fun abrirTelaCadastro(view: View) {
         intent = Intent(this, CadastroActivity::class.java)
