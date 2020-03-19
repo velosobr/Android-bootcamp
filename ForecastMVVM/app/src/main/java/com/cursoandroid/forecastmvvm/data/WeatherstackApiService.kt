@@ -1,6 +1,6 @@
 package com.cursoandroid.forecastmvvm.data
 
-import com.cursoandroid.forecastmvvm.data.network.response.CurrentWeatherResponse
+import com.cursoandroid.forecastmvvm.data.response.CurrentWeatherResponse
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.coroutines.Deferred
 import okhttp3.Interceptor
@@ -16,7 +16,7 @@ const val API_KEY = "15867759534bc022e40b2e8a7df515c5"
 
 interface WeatherstackApiService {
     @GET("current")
-    fun getCurrentWeatherAsync(
+    fun getCurrentWeather(
         @Query("query") location: String
     ): Deferred<CurrentWeatherResponse>
 
@@ -32,13 +32,19 @@ interface WeatherstackApiService {
                     .newBuilder()
                     .url(url)
                     .build()
-                println("Esta é a url $url")
+                println("Este é o valor do: chain ${chain.request()}")
+                println("Este é o valor do: url $url")
+                println("Este é o valor do: chain.request() ${chain.request()}")
+                println("Este é o valor do: request $request")
+
                 return@Interceptor chain.proceed(request)
             }
+            println("Este é o valor do: requestInterceptor $requestInterceptor")
             val okHttpClient = OkHttpClient.Builder()
                 .addInterceptor(requestInterceptor)
                 .build()
 
+            println("Este é o valor do: okHttpClient ${okHttpClient.authenticator()}")
 
             return Retrofit.Builder()
                 .client(okHttpClient)

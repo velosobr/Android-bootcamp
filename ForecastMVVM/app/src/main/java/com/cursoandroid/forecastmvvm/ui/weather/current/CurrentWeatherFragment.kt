@@ -36,21 +36,10 @@ class CurrentWeatherFragment : Fragment() {
         val apiService = WeatherstackApiService()
         GlobalScope.launch(Dispatchers.Main) {
 
-            try {
-                val currentWeatherResponse = apiService.getCurrentWeatherAsync("london").await()
+            val currentWeatherResponse = apiService.getCurrentWeather("biguacu").await()
 
 
-                textView.text = currentWeatherResponse.currentWeatherEntry.toString()
-
-            } catch (e: Exception) {
-                e.printStackTrace()
-                println(e.message)
-            }
-
-//
-//
-//            // textView.text = currentWeatherResponse.currentWeatherEntry.toString()
-//        }
+            textView.text = currentWeatherResponse.current.toString()
         }
 
     }
