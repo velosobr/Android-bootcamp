@@ -1,6 +1,6 @@
-package com.cursoandroid.navigationtuto
+package com.cursoandroid.forecastmvvm
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
 class MainActivity : AppCompatActivity() {
