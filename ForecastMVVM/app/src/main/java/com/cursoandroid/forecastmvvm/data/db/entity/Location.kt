@@ -1,4 +1,4 @@
-package com.cursoandroid.forecastmvvm.data.response
+package com.cursoandroid.forecastmvvm.data.db.entity
 
 
 import com.google.gson.annotations.SerializedName
