@@ -1,6 +1,3 @@
 <resources>
     <string name="app_name">Forecast MVVM</string>
-    <string name="today">Today</string>
-    <string name="_7_days">7 days</string>
-    <string name="settings">Settings</string>
 </resources>
