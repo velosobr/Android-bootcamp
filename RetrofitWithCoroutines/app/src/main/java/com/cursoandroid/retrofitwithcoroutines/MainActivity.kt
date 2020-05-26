@@ -7,7 +7,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
-import retrofit2.await
 import retrofit2.converter.gson.GsonConverterFactory
 
 const val BASE_URL = "https://jsonplaceholder.typicode.com/"
@@ -26,9 +25,9 @@ class MainActivity : AppCompatActivity() {
             .create(MyAPI::class.java)
 
         GlobalScope.launch(Dispatchers.IO) {
-            val comments = api.getComments().await()
-            for (comment in comments) {
-                Log.d("TAG", comment.toString())
+            val response = api.getComments()
+            for (comment in response.body()!!) {
+                Log.d(TAG, comment.toString())
             }
 
         }
