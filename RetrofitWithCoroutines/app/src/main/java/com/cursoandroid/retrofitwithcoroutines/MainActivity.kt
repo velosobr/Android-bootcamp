@@ -33,6 +33,9 @@ class MainActivity : AppCompatActivity() {
          */
         Log.d(TAG, "Started")
         GlobalScope.launch(Dispatchers.IO) {
+            val response = api.getComments()
+            for (comment in response.body()!!) {
+                Log.d(TAG, comment.toString())
             val time = measureTimeMillis {
 
                 //the best practice
@@ -52,6 +55,7 @@ class MainActivity : AppCompatActivity() {
                 Log.d(TAG, "Answer1 is $answer1")
                 Log.d(TAG, "Answer2 is $answer2")
                  */
+
             }
             Log.d(TAG, "Requests took $time ms")
 
