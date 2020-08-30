@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
                 chronometerViewModel.mStartTime = startTime
                 chronometer.base = startTime
             } else {
-                chronometer.base = chronometerViewModel.mStartTime
+                chronometer.base = chronometerViewModel.mStartTime!!
             }
             chronometer.start()
         })
