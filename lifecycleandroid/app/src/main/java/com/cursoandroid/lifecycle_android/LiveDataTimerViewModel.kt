@@ -8,6 +8,6 @@ class LiveDataTimerViewModel : ViewModel(){
 
     private val ONE_SECOND = 1000
     private val mElapsedTime = MutableLiveData<Long>()
-    private val mInitialTime = TODO();
-    private val timer: Timer = TODO();
+    var InitialTime: Long? = null
+    private val timer: Timer? = null
 }
