@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     var dicesRolled = false
@@ -25,6 +26,8 @@ class MainActivity : AppCompatActivity() {
             dicesRolled = true
         }else{
             text.text = "The Dice has already rolled once"
+
+            Toast.makeText(this, "Botão clicado", Toast.LENGTH_SHORT).show()
         }
 
 
