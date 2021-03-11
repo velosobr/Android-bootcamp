@@ -9,3 +9,12 @@ Ktlint
   - https://www.youtube.com/watch?v=YmZIkUGnCco&ab_channel=goobar
   - https://ktlint.github.io/#getting-started
   - 
+RxJava
+  - https://www.freecodecamp.org/news/a-complete-roadmap-for-learning-rxjava-9316ee6aeda7/
+  - https://betterprogramming.pub/understand-rxjava-in-a-new-way-3f43f2696c8c
+  - https://www.youtube.com/watch?v=k3D0cWyNno4
+  - https://ayusch.com/understanding-rxjava-basics/
+    - What is an Observable?
+    - What is a Subscriber?
+    - How do Observables and Subscribers work together?
+    - What is an operator (not the specific functionality, but what an operator does)?
