@@ -21,3 +21,6 @@ RxJava
 
 Android Architecture Components
  - https://medium.com/android-dev-moz/aac2-a7c59e1a3cf7
+
+Kotlin advanced way
+  - https://medium.com/androiddevelopers/use-view-binding-to-replace-findviewbyid-c83942471fc
