@@ -26,3 +26,5 @@ Kotlin advanced way
   - ViewBinding 
     - https://proandroiddev.com/viewbinding-with-kotlin-property-delegate-c907682e24c9
     - https://medium.com/androiddevelopers/use-view-binding-to-replace-findviewbyid-c83942471fc
+  - delegated properties 
+    - https://kotlinlang.org/docs/delegated-properties.html#providing-a-delegate 
