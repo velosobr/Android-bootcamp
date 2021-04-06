@@ -19,6 +19,9 @@ RxJava
     - How do Observables and Subscribers work together?
     - What is an operator (not the specific functionality, but what an operator does)?
 
+Dagger
+  - https://dagger.dev/tutorial/02-initial-dagger
+
 Android Architecture Components
  - https://medium.com/android-dev-moz/aac2-a7c59e1a3cf7
 
