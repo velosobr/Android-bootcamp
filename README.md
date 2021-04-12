@@ -34,5 +34,7 @@ Kotlin advanced way
     - https://medium.com/androiddevelopers/use-view-binding-to-replace-findviewbyid-c83942471fc
   - delegated properties 
     - https://kotlinlang.org/docs/delegated-properties.html#providing-a-delegate 
-  - Android RecyclerView With Kotlin Sealed Classes
+  - sealed classes
+    - https://betterprogramming.pub/how-to-use-kotlin-sealed-classes-for-state-management-c1cfb81abc6a
+ - Android RecyclerView With Kotlin Sealed Classes
     - https://betterprogramming.pub/android-recyclerview-with-kotlin-sealed-classes-6d2985aac3e5
