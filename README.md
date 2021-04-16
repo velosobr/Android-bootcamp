@@ -1,5 +1,5 @@
 # Android Roadmap
-### Pretendo postar abaixo, materiais relacionados ao meu processo de aprendizado. Ao longo do percurso, li e pratiquei muitos conteúdos e tutoriais. Agora, tenho a intenção de deixar aqui documentado, caso alguém passe pelo mesmo processo que eu e assim, possa ter sua jornada facilitada. 
+### Pretendo postar abaixo, materiais relacionados ao meu processo de aprendizado. Ao longo do percurso, li e pratiquei muitos conteúdos e tutoriais. Agora, tenho a intenção de deixar aqui documentado, caso alguém passe pelo mesmo processo que eu e assim, possa ter sua jornada facilitada. Muito dos conteúdos abaixo, foram baseados nesse [roadmap](https://trello.com/b/fsc44tYh/android-developer-roadmap) ;)
 
 Best practices in Android development
   - https://github.com/futurice/android-best-practices
