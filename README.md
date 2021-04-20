@@ -45,3 +45,5 @@ Kotlin advanced way
     - https://betterprogramming.pub/how-to-use-kotlin-sealed-classes-for-state-management-c1cfb81abc6a
  - Android RecyclerView With Kotlin Sealed Classes
     - https://betterprogramming.pub/android-recyclerview-with-kotlin-sealed-classes-6d2985aac3e5
+    - https://www.raywenderlich.com/1560485-android-recyclerview-tutorial-with-kotlin
+    - https://www.raywenderlich.com/272-intermediate-recyclerview-tutorial-with-kotlin#toc-anchor-009
