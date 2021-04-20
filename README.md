@@ -35,15 +35,22 @@ Dagger
 Android Architecture Components
  - https://medium.com/android-dev-moz/aac2-a7c59e1a3cf7
 
-Kotlin advanced way
-  - ViewBinding 
-    - https://proandroiddev.com/viewbinding-with-kotlin-property-delegate-c907682e24c9
-    - https://medium.com/androiddevelopers/use-view-binding-to-replace-findviewbyid-c83942471fc
-  - delegated properties 
-    - https://kotlinlang.org/docs/delegated-properties.html#providing-a-delegate 
-  - sealed classes
-    - https://betterprogramming.pub/how-to-use-kotlin-sealed-classes-for-state-management-c1cfb81abc6a
- - Android RecyclerView With Kotlin Sealed Classes
-    - https://betterprogramming.pub/android-recyclerview-with-kotlin-sealed-classes-6d2985aac3e5
-    - https://www.raywenderlich.com/1560485-android-recyclerview-tutorial-with-kotlin
-    - https://www.raywenderlich.com/272-intermediate-recyclerview-tutorial-with-kotlin#toc-anchor-009
+ViewBinding 
+ - https://proandroiddev.com/viewbinding-with-kotlin-property-delegate-c907682e24c9
+ - https://medium.com/androiddevelopers/use-view-binding-to-replace-findviewbyid-c83942471fc
+
+Delegated properties 
+  - https://kotlinlang.org/docs/delegated-properties.html#providing-a-delegate 
+
+Sealed classes
+  - https://betterprogramming.pub/how-to-use-kotlin-sealed-classes-for-state-management-c1cfb81abc6a
+
+RecyclerView
+  - https://www.raywenderlich.com/1560485-android-recyclerview-tutorial-with-kotlin
+  - https://www.raywenderlich.com/272-intermediate-recyclerview-tutorial-with-kotlin#toc-anchor-009
+  - RecyclerView With Kotlin Sealed Classes
+    - https://betterprogramming.pub/android-recyclerview-with-kotlin-sealed-classes-6d2985aac3e5  
+  - RecyclerView with Multiple ViewType
+    - https://newfivefour.com/android-recyclerview-section-headers-view-types.html 
+    - https://stackoverflow.com/questions/30752980/add-two-sections-in-recyclerview-android/36846783
+    - https://www.youtube.com/watch?v=x5afKIu0JmY
