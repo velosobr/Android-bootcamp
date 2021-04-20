@@ -52,5 +52,6 @@ RecyclerView
     - https://betterprogramming.pub/android-recyclerview-with-kotlin-sealed-classes-6d2985aac3e5  
   - RecyclerView with Multiple ViewType
     - https://newfivefour.com/android-recyclerview-section-headers-view-types.html 
+    - https://www.geeksforgeeks.org/how-to-create-recyclerview-with-multiple-viewtype-in-android/
     - https://stackoverflow.com/questions/30752980/add-two-sections-in-recyclerview-android/36846783
     - https://www.youtube.com/watch?v=x5afKIu0JmY
