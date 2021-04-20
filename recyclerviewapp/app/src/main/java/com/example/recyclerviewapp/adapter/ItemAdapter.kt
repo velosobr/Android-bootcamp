@@ -1,6 +1,7 @@
 package com.example.recyclerviewapp.adapter
 
 import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -13,16 +14,30 @@ class ItemAdapter(
     private val dataset: List<Affirmation>
 ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
-    class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+    /**
+     * Provide a reference to the views for each data item
+     * Complex data items may need more than one view per item, and
+     * you provide access to all the views for a data item in a view holder.
+     * Each data item is just an Affirmation object.
+     */
+    class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView = view.findViewById(R.id.item_title)
     }
 
+    /**
+     * Create new views (invoked by the layout manager)
+     */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        TODO("Not yet implemented")
+        val adapter = LayoutInflater.from(parent.context)
+            .inflate(R.layout.list_item, parent, false)
+        return ItemViewHolder(adapter)
     }
-
+    /**
+     * Replace the contents of a view (invoked by the layout manager)
+     */
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val item = dataset[position]
+        holder.textView.text = context.resources.getString(item.stringResourceId)
     }
 
     override fun getItemCount() = dataset.size
