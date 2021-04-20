@@ -12,6 +12,8 @@ Design Patterns
   - https://github.com/dbacinski/Design-Patterns-In-Kotlin
   - https://blog.mindorks.com/mastering-design-patterns-in-android-with-kotlin
   - https://www.raywenderlich.com/18409174-common-design-patterns-and-app-architectures-for-android
+  - MVVM
+    - https://www.raywenderlich.com/636803-mvvm-and-databinding-android-design-patterns
 
 Ktlint 
   - https://www.youtube.com/watch?v=YmZIkUGnCco&ab_channel=goobar
