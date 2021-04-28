@@ -42,6 +42,10 @@ ViewBinding
 Delegated properties 
   - https://kotlinlang.org/docs/delegated-properties.html#providing-a-delegate 
 
+non-null-assertions
+  - https://medium.com/@igorwojda/kotlin-combating-non-null-assertions-5282d7b97205
+  - https://www.baeldung.com/kotlin/not-null-assertion#:~:text=Each%20type%20in%20Kotlin%20has,%2Dnull%2032%2Dbit%20integers.&text=Kotlin%20provides%20many%20options%20to,types%20in%20a%20safe%20manner.
+
 Sealed classes
   - https://betterprogramming.pub/how-to-use-kotlin-sealed-classes-for-state-management-c1cfb81abc6a
 
