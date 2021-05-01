@@ -8,6 +8,9 @@ Clean Archtecture
   - https://www.raywenderlich.com/3595916-clean-architecture-tutorial-for-android-getting-started#toc-anchor-004
   - https://www.amazon.com.br/dp/B075LRM681/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1
 
+Refactoring 
+  -  https://link.medium.com/hEC4bYL8Tfb 
+
 Design Patterns
   - https://github.com/dbacinski/Design-Patterns-In-Kotlin
   - https://blog.mindorks.com/mastering-design-patterns-in-android-with-kotlin
