@@ -32,6 +32,8 @@ RxJava
     - How do Observables and Subscribers work together?
     - What is an operator (not the specific functionality, but what an operator does)?
 
+Corroutine
+  - https://medium.com/android-dev-hacks/introduction-to-kotlin-coroutines-72a951577468
 Dagger
   - https://dagger.dev/tutorial/02-initial-dagger
 
