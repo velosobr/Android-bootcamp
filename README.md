@@ -33,6 +33,7 @@ RxJava
     - What is an operator (not the specific functionality, but what an operator does)?
 
 Corroutine
+  - https://www.raywenderlich.com/books/kotlin-coroutines-by-tutorials/v2.0/chapters/3-getting-started-with-coroutines#toc-chapter-007-anchor-006
   - https://medium.com/android-dev-hacks/introduction-to-kotlin-coroutines-72a951577468
 
 Dagger
