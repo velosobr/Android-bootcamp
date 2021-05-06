@@ -4,9 +4,17 @@
 Best practices in Android development
   - https://github.com/futurice/android-best-practices
 
-Clean Archtecture 
-  - https://www.raywenderlich.com/3595916-clean-architecture-tutorial-for-android-getting-started#toc-anchor-004
-  - https://www.amazon.com.br/dp/B075LRM681/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1
+Archtecture
+  - MVP
+    - https://medium.com/mindorks/android-mvp-pattern-debunked-for-beginners-kotlin-c56c888222e0
+    - https://github.com/nikhilbansal97/SampleMVP
+  
+  - MVVM
+    - https://www.raywenderlich.com/636803-mvvm-and-databinding-android-design-patterns
+
+  - Clean Archtecture 
+    - https://www.raywenderlich.com/3595916-clean-architecture-tutorial-for-android-getting-started#toc-anchor-004
+    - https://www.amazon.com.br/dp/B075LRM681/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1
 
 Refactoring 
   -  https://link.medium.com/hEC4bYL8Tfb 
@@ -15,9 +23,6 @@ Design Patterns
   - https://github.com/dbacinski/Design-Patterns-In-Kotlin
   - https://blog.mindorks.com/mastering-design-patterns-in-android-with-kotlin
   - https://www.raywenderlich.com/18409174-common-design-patterns-and-app-architectures-for-android
-  - MVVM
-    - https://www.raywenderlich.com/636803-mvvm-and-databinding-android-design-patterns
-
 Ktlint 
   - https://www.youtube.com/watch?v=YmZIkUGnCco&ab_channel=goobar
   - https://ktlint.github.io/#getting-started
