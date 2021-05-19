@@ -6,8 +6,8 @@ import java.util.*
 
 /**
  *
- * Setembro, 24 2019
- * @author suporte@moonjava.com.br (Tiago Aguiar).
+ * Maio, 18 2021
+ * @author velosobr
  */
 data class Note(
     var id: Int = 0,
