@@ -63,43 +63,51 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onStart() {
         super.onStart()
         dataSource.listNotes(callback)
+
+        /**
+        THEORY PART
         val subscriber = createSubscriber()
 
-        createChannel()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(subscriber)
+        val channel = createChannel()
+        .subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribe(subscriber)
+         */
 
     }
 
+    /**
+    THEORY PART
     fun createChannel(): Observable<String> {
-        return Observable.create { emitter ->
-            println(Thread.currentThread().name)
-            emitter.onNext("Bem vindo ao canal")
-            emitter.onComplete()
-        }
+    return Observable.create { emitter ->
+    println(Thread.currentThread().name)
+    emitter.onNext("Bem vindo ao canal")
+    emitter.onComplete()
+    }
     }
 
     fun createSubscriber(): Observer<String> {
-        return object : Observer<String> {
-            override fun onSubscribe(d: Disposable) {
-                println("inscrição completada")
-            }
-
-            override fun onNext(t: String) {
-                println("novo valor é: $t")
-            }
-
-            override fun onError(e: Throwable) {
-                println("novo valor error ${e.message}")
-            }
-
-            override fun onComplete() {
-                println("Novo valor emitido")
-                println("oncomplete - " + Thread.currentThread().name)
-            }
-        }
+    return object : Observer<String> {
+    override fun onSubscribe(d: Disposable) {
+    println("inscrição completada")
     }
+
+    override fun onNext(t: String) {
+    println("novo valor é: $t")
+    }
+
+    override fun onError(e: Throwable) {
+    println("novo valor error ${e.message}")
+    }
+
+    override fun onComplete() {
+    println("Novo valor emitido")
+    println("oncomplete - " + Thread.currentThread().name)
+    }
+    }
+    }
+     */
+
 
     private val callback: Callback<List<Note>>
         get() = object : Callback<List<Note>> {
