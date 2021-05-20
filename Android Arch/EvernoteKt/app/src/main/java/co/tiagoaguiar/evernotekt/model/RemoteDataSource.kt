@@ -27,5 +27,4 @@ class RemoteDataSource {
             .createNote(note)
             .enqueue(callback)
     }
-
 }

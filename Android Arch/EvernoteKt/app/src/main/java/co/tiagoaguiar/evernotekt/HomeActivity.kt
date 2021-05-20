@@ -13,12 +13,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import co.tiagoaguiar.evernotekt.model.Note
 import co.tiagoaguiar.evernotekt.model.RemoteDataSource
 import com.google.android.material.navigation.NavigationView
+import io.reactivex.Observable
+import io.reactivex.Observer
+import io.reactivex.Scheduler
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.Disposable
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.content_home.*
 import retrofit2.Callback
 import retrofit2.Response
-
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -58,6 +63,42 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onStart() {
         super.onStart()
         dataSource.listNotes(callback)
+        val subscriber = createSubscriber()
+
+        createChannel()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(subscriber)
+
+    }
+
+    fun createChannel(): Observable<String> {
+        return Observable.create { emitter ->
+            println(Thread.currentThread().name)
+            emitter.onNext("Bem vindo ao canal")
+            emitter.onComplete()
+        }
+    }
+
+    fun createSubscriber(): Observer<String> {
+        return object : Observer<String> {
+            override fun onSubscribe(d: Disposable) {
+                println("inscrição completada")
+            }
+
+            override fun onNext(t: String) {
+                println("novo valor é: $t")
+            }
+
+            override fun onError(e: Throwable) {
+                println("novo valor error ${e.message}")
+            }
+
+            override fun onComplete() {
+                println("Novo valor emitido")
+                println("oncomplete - " + Thread.currentThread().name)
+            }
+        }
     }
 
     private val callback: Callback<List<Note>>
