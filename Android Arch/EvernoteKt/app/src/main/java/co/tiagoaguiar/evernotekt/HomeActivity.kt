@@ -17,7 +17,9 @@ import io.reactivex.Observable
 import io.reactivex.Observer
 import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
+import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.app_bar_home.*
@@ -28,6 +30,7 @@ import retrofit2.Response
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private val dataSource = RemoteDataSource()
+    private val compositeDisposable = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,8 +65,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onStart() {
         super.onStart()
-        dataSource.listNotes(callback)
-
+        getAllNotes()
         /**
         THEORY PART
         val subscriber = createSubscriber()
@@ -74,6 +76,21 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         .subscribe(subscriber)
          */
 
+    }
+
+    override fun onStop() {
+        super.onStop()
+        compositeDisposable.clear()
+
+    }
+
+    private fun getAllNotes() {
+        val disposable = dataSource.listNotes()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeWith(notesObserver)
+
+        compositeDisposable.addAll(disposable)
     }
 
     /**
@@ -109,26 +126,21 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
      */
 
 
-    private val callback: Callback<List<Note>>
-        get() = object : Callback<List<Note>> {
+    private val notesObserver: DisposableObserver<List<Note>>
+        get() = object : DisposableObserver<List<Note>>() {
+            override fun onNext(note: List<Note>) {
+                displayNotes(note)
 
-            override fun onFailure(call: retrofit2.Call<List<Note>>, t: Throwable) {
-                t.printStackTrace()
+            }
+
+            override fun onError(e: Throwable) {
+                e.printStackTrace()
                 displayError("Erro ao carregar notas")
             }
 
-            override fun onResponse(
-                call: retrofit2.Call<List<Note>>,
-                response: Response<List<Note>>
-            ) {
-                if (response.isSuccessful) {
-                    val notes = response.body()
-                    notes?.let {
-                        displayNotes(it)
-                    }
-                }
+            override fun onComplete() {
+                println("complete")
             }
-
         }
 
     fun displayError(message: String) {
