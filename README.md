@@ -57,6 +57,9 @@ Navigation
   - https://medium.com/androiddevelopers/navigation-multiple-back-stacks-6c67ba41952f
   - https://zhuinden.medium.com/creating-a-bottomnavigation-multi-stack-using-child-fragments-with-simple-stack-c73c1ca3bbd4
 
+  - Navigation Test
+    - https://usabilityhub.com/guides/navigation-testing#examples 
+
 Delegated properties 
   - https://kotlinlang.org/docs/delegated-properties.html#providing-a-delegate 
 
