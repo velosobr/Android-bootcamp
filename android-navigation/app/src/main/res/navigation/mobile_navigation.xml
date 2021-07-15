@@ -78,6 +78,9 @@
         <argument
             android:name="myarg"
             android:defaultValue="Android!" />
+        <action
+            android:id="@+id/action_deeplink_dest_to_home_dest"
+            app:destination="@id/home_dest" />
         <!-- TODO STEP 11.1 - Add a deep link to www.example.com/{myarg}/ -->
 
         <!--<deepLink app:uri="www.example.com/{myarg}" />-->

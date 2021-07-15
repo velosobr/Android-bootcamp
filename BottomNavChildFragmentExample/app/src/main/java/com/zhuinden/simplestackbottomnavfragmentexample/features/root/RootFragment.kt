@@ -83,10 +83,12 @@ class RootFragment : KeyedFragment(R.layout.root_fragment) {
 
     private fun setupTabSelectedState(selectedIndex: Int) {
         tabs.forEachIndexed { index, textView ->
-            textView.setTextColor(when {
-                index == selectedIndex -> ContextCompat.getColor(requireContext(), R.color.tab_selected)
-                else -> ContextCompat.getColor(requireContext(), R.color.tab_unselected)
-            })
+            textView.setTextColor(
+                when {
+                    index == selectedIndex -> ContextCompat.getColor(requireContext(), R.color.tab_selected)
+                    else -> ContextCompat.getColor(requireContext(), R.color.tab_unselected)
+                }
+            )
         }
     }
 
