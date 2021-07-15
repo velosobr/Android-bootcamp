@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment
 import com.techyourchance.coroutines.R
 import com.techyourchance.coroutines.common.BaseFragment
 import com.techyourchance.coroutines.common.ThreadInfoLogger
-import com.techyourchance.coroutines.exercises.exercise1.GetReputationEndpoint
 import com.techyourchance.coroutines.home.ScreenReachableFromHome
 import kotlinx.coroutines.*
 
@@ -42,7 +41,7 @@ class Exercise5SolutionFragment : BaseFragment() {
 
         edtUserId = view.findViewById(R.id.edt_user_id)
         edtUserId.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) { }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 btnGetReputation.isEnabled = !s.isNullOrEmpty()

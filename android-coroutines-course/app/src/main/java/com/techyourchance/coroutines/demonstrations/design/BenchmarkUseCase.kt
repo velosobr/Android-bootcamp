@@ -21,9 +21,7 @@ class BenchmarkUseCase {
         iterationsCount
     }
 
-
     private fun logThreadInfo(message: String) {
         ThreadInfoLogger.logThreadInfo(message)
     }
-
 }

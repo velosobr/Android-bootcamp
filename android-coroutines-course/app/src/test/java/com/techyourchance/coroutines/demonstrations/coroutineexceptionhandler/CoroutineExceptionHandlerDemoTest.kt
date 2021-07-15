@@ -1,16 +1,8 @@
 package com.techyourchance.coroutines.demonstrations.coroutineexceptionhandler
 
-import com.techyourchance.coroutines.common.TestUtils
-import com.techyourchance.coroutines.common.TestUtils.printCoroutineScopeInfo
-import com.techyourchance.coroutines.common.TestUtils.printJobsHierarchy
 import kotlinx.coroutines.*
-import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
-import java.lang.Exception
 import java.lang.RuntimeException
-import kotlin.concurrent.thread
-import kotlin.coroutines.CoroutineContext
-import kotlin.coroutines.EmptyCoroutineContext
 
 class CoroutineExceptionHandlerDemoTest {
 
@@ -65,8 +57,4 @@ class CoroutineExceptionHandlerDemoTest {
         Thread.sleep(100)
         println("test completed")
     }
-
-
-
-
 }

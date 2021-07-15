@@ -1,13 +1,10 @@
 package com.techyourchance.coroutines.demonstrations.noncancellable
 
-import com.techyourchance.coroutines.common.ThreadInfoLogger
-import com.techyourchance.coroutines.common.ThreadInfoLogger.logThreadInfo
-import com.techyourchance.coroutines.exercises.exercise6.PostBenchmarkResultsEndpoint
 import kotlinx.coroutines.*
 
 class MakeCustomerPremiumUseCase(
-        private val premiumCustomersEndpoint: PremiumCustomersEndpoint,
-        private val customersDao: CustomersDao
+    private val premiumCustomersEndpoint: PremiumCustomersEndpoint,
+    private val customersDao: CustomersDao
 ) {
 
     /**
@@ -23,5 +20,4 @@ class MakeCustomerPremiumUseCase(
             }
         }
     }
-
 }

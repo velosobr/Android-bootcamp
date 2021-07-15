@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.techyourchance.coroutines.R
 import com.techyourchance.coroutines.common.BaseFragment
@@ -63,7 +62,6 @@ class CoroutinesCancellationCooperative2DemoFragment : BaseFragment() {
         super.onStop()
         coroutineScope.coroutineContext.cancelChildren()
     }
-
 
     private suspend fun updateRemainingTime(remainingTimeSeconds: Int) {
         for (time in remainingTimeSeconds downTo 0) {

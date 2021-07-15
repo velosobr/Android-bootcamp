@@ -9,5 +9,4 @@ object ThreadInfoLogger {
     fun logThreadInfo(message: String) {
         Log.i(TAG, "$message; thread name: ${Thread.currentThread().name}; thread ID: ${Thread.currentThread().id}")
     }
-
 }

@@ -15,9 +15,9 @@ import kotlin.coroutines.CoroutineContext
  * Background CoroutineDispatcher for Android applications which replaces both
  * [Dispatchers.Default] and [Dispatchers.IO].
  */
-object BackgroundDispatcher: CoroutineDispatcher() {
+object BackgroundDispatcher : CoroutineDispatcher() {
 
-    private val threadFactory = object: ThreadFactory {
+    private val threadFactory = object : ThreadFactory {
         private val threadCount = AtomicInteger(0)
         private val nextThreadName get() = "BackgroundDispatcher-worker-${threadCount.incrementAndGet()}"
 
@@ -27,13 +27,13 @@ object BackgroundDispatcher: CoroutineDispatcher() {
     }
 
     private val threadPool = ThreadPoolExecutor(
-            3,
-            Integer.MAX_VALUE,
-            60L,
-            TimeUnit.SECONDS,
-            SynchronousQueue<Runnable>(),
-            threadFactory
-    );
+        3,
+        Integer.MAX_VALUE,
+        60L,
+        TimeUnit.SECONDS,
+        SynchronousQueue<Runnable>(),
+        threadFactory
+    )
 
     private val dispatcher = threadPool.asCoroutineDispatcher()
 
@@ -46,5 +46,4 @@ object BackgroundDispatcher: CoroutineDispatcher() {
      * [Dispatchers.Default] and [Dispatchers.IO].
      */
     val Dispatchers.Background get() = BackgroundDispatcher
-
 }

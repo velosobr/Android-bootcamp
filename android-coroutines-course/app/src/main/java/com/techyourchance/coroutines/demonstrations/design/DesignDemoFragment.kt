@@ -27,7 +27,6 @@ class DesignDemoFragment : BaseFragment() {
 
     private var hasBenchmarkBeenStartedOnce = false
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         benchmarkUseCase = compositionRoot.benchmarkUseCase
@@ -70,7 +69,6 @@ class DesignDemoFragment : BaseFragment() {
             txtRemainingTime.text = "done!"
         }
     }
-
 
     private suspend fun updateRemainingTime(remainingTimeSeconds: Int) {
         for (time in remainingTimeSeconds downTo 0) {

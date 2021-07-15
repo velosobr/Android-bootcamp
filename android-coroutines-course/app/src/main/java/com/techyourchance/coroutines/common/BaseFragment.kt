@@ -27,6 +27,4 @@ abstract class BaseFragment : Fragment() {
             toolbarManipulator.showUpButton()
         }
     }
-
-
 }

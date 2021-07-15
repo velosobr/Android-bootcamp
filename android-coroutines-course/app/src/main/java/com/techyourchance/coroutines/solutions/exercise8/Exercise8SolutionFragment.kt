@@ -73,7 +73,6 @@ class Exercise8SolutionFragment : BaseFragment() {
         coroutineScope.coroutineContext.cancelChildren()
     }
 
-
     private suspend fun updateElapsedTime() {
         val startTimeNano = System.nanoTime()
         while (true) {

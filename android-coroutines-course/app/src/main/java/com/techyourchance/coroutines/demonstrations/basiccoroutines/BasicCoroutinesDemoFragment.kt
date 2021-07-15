@@ -43,7 +43,6 @@ class BasicCoroutinesDemoFragment : BaseFragment() {
                 Toast.makeText(requireContext(), "$iterationsCount", Toast.LENGTH_SHORT).show()
                 btnStart.isEnabled = true
             }
-
         }
 
         return view
@@ -75,13 +74,15 @@ class BasicCoroutinesDemoFragment : BaseFragment() {
 
         if (remainingTimeSeconds > 0) {
             txtRemainingTime.text = "$remainingTimeSeconds seconds remaining"
-            Handler(Looper.getMainLooper()).postDelayed({
-                updateRemainingTime(remainingTimeSeconds - 1)
-            }, 1000)
+            Handler(Looper.getMainLooper()).postDelayed(
+                {
+                    updateRemainingTime(remainingTimeSeconds - 1)
+                },
+                1000
+            )
         } else {
             txtRemainingTime.text = "done!"
         }
-
     }
 
     private fun logThreadInfo(message: String) {

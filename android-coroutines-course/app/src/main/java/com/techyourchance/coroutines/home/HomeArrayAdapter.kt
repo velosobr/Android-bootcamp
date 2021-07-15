@@ -28,5 +28,4 @@ class HomeArrayAdapter(context: Context, private val listener: Listener) : Array
 
         return newConvertView
     }
-
 }

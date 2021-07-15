@@ -74,6 +74,4 @@ class SupervisorJobDemoTest {
         Thread.sleep(100)
         println("test completed")
     }
-
-
 }

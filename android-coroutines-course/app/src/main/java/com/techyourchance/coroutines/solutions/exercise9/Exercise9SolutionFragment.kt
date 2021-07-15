@@ -26,7 +26,6 @@ class Exercise9SolutionFragment : BaseFragment() {
     private lateinit var txtElapsedTime: TextView
     private lateinit var txtUsers: TextView
 
-
     private val userIds = listOf<String>("bmq81", "gfn12", "gla34")
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -82,7 +81,6 @@ class Exercise9SolutionFragment : BaseFragment() {
         super.onStop()
         coroutineScope.coroutineContext.cancelChildren()
     }
-
 
     private suspend fun updateElapsedTime() {
         val startTimeNano = System.nanoTime()

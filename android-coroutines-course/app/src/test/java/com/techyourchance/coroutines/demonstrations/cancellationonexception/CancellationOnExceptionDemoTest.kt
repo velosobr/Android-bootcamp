@@ -49,11 +49,10 @@ class CancellationOnExceptionDemoTest {
         println("test completed")
     }
 
-
     @Test
     fun uncaughtExceptionInConcurrentCoroutinesWithExceptionHandler() {
         runBlocking {
-            val coroutineExceptionHandler = CoroutineExceptionHandler{ _, throwable ->
+            val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
                 println("Caught exception: $throwable")
             }
 
@@ -75,5 +74,4 @@ class CancellationOnExceptionDemoTest {
         Thread.sleep(100)
         println("test completed")
     }
-
 }

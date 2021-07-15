@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity(), ToolbarDelegate {
     private lateinit var txtScreenTitle: TextView
 
     val compositionRoot by lazy {
-        ActivityCompositionRoot(this,(application as MyApplication).applicationCompositionRoot)
+        ActivityCompositionRoot(this, (application as MyApplication).applicationCompositionRoot)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

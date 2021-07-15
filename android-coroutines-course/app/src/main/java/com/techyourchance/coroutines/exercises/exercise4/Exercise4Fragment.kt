@@ -11,8 +11,6 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-
-import java.math.BigInteger
 import androidx.fragment.app.Fragment
 import com.techyourchance.coroutines.R
 import com.techyourchance.coroutines.common.BaseFragment
@@ -21,6 +19,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
+import java.math.BigInteger
 
 class Exercise4Fragment : BaseFragment() {
 
@@ -51,7 +50,7 @@ class Exercise4Fragment : BaseFragment() {
         }
 
         edtArgument.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) { }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 btnStartWork.isEnabled = !s.isNullOrEmpty()
@@ -96,7 +95,7 @@ class Exercise4Fragment : BaseFragment() {
         btnStartWork.isEnabled = true
     }
 
-    private fun getTimeout() : Int {
+    private fun getTimeout(): Int {
         var timeout: Int
         if (edtTimeout.text.toString().isEmpty()) {
             timeout = MAX_TIMEOUT_MS

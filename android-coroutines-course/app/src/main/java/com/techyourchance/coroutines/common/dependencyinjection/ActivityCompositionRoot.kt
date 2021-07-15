@@ -14,13 +14,13 @@ import com.techyourchance.coroutines.demonstrations.noncancellable.PremiumCustom
 import com.techyourchance.coroutines.demonstrations.uncaughtexception.LoginEndpointUncaughtException
 import com.techyourchance.coroutines.demonstrations.uncaughtexception.LoginUseCaseUncaughtException
 import com.techyourchance.coroutines.demonstrations.uncaughtexception.UserStateManager
-import com.techyourchance.coroutines.exercises.exercise8.FetchAndCacheUsersUseCase
-import com.techyourchance.coroutines.exercises.exercise8.GetUserEndpoint
-import com.techyourchance.coroutines.exercises.exercise8.UsersDao
 import com.techyourchance.coroutines.exercises.exercise1.GetReputationEndpoint
 import com.techyourchance.coroutines.exercises.exercise4.FactorialUseCase
 import com.techyourchance.coroutines.exercises.exercise6.Exercise6BenchmarkUseCase
 import com.techyourchance.coroutines.exercises.exercise6.PostBenchmarkResultsEndpoint
+import com.techyourchance.coroutines.exercises.exercise8.FetchAndCacheUsersUseCase
+import com.techyourchance.coroutines.exercises.exercise8.GetUserEndpoint
+import com.techyourchance.coroutines.exercises.exercise8.UsersDao
 import com.techyourchance.coroutines.exercises.exercise9.FetchAndCacheUsersUseCaseExercise9
 import com.techyourchance.coroutines.solutions.exercise5.GetReputationUseCase
 import com.techyourchance.coroutines.solutions.exercise6.Exercise6SolutionBenchmarkUseCase
@@ -28,8 +28,8 @@ import com.techyourchance.coroutines.solutions.exercise8.Exercise8SolutionFetchA
 import com.techyourchance.coroutines.solutions.exercise9.FetchAndCacheUsersUseCaseSolutionExercise9
 
 class ActivityCompositionRoot(
-        private val activity: FragmentActivity,
-        private val appCompositionRoot: ApplicationCompositionRoot
+    private val activity: FragmentActivity,
+    private val appCompositionRoot: ApplicationCompositionRoot
 ) {
 
     val toolbarManipulator get() = activity as ToolbarDelegate
@@ -83,5 +83,4 @@ class ActivityCompositionRoot(
     val fetchAndCacheUserUseCaseSolutionExercise9 get() = FetchAndCacheUsersUseCaseSolutionExercise9(getUserEndpoint, usersDao)
 
     val loginUseCaseUncaughtException get() = LoginUseCaseUncaughtException(loginEndpointUncaughtException, userStateManager)
-
 }

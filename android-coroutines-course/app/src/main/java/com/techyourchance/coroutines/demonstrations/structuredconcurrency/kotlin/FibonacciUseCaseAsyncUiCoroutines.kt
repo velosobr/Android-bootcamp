@@ -27,5 +27,4 @@ internal class FibonacciUseCaseAsyncUiCoroutines(private val bgDispatcher: Corou
             computeFibonacciBg(index - 1).add(computeFibonacciBg(index - 2))
         }
     }
-
 }

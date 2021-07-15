@@ -1,13 +1,8 @@
 package com.techyourchance.coroutines.solutions.exercise7
 
-import com.techyourchance.coroutines.common.TestUtils
-import com.techyourchance.coroutines.common.TestUtils.printCoroutineScopeInfo
 import com.techyourchance.coroutines.common.TestUtils.printJobsHierarchy
 import kotlinx.coroutines.*
-import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
-import java.lang.Exception
-import kotlin.coroutines.EmptyCoroutineContext
 
 class Exercise7SolutionTest {
 
@@ -34,7 +29,6 @@ class Exercise7SolutionTest {
                                 } catch (e: CancellationException) {
                                     println("nested withContext cancelled")
                                 }
-
                             }
                             println("withContext completed")
                         } catch (e: CancellationException) {
@@ -71,7 +65,7 @@ class Exercise7SolutionTest {
                     withContext(CoroutineName("withContext") + Dispatchers.Default) {
                         try {
                             delay(1000)
-                            launch (CoroutineName("nested coroutine")) {
+                            launch(CoroutineName("nested coroutine")) {
                                 try {
                                     delay(1000)
                                     printJobsHierarchy(scopeJob)
@@ -115,7 +109,7 @@ class Exercise7SolutionTest {
                     withContext(CoroutineName("withContext") + Dispatchers.Default) {
                         try {
                             delay(1000)
-                            scope.launch (CoroutineName("nested coroutine")) {
+                            scope.launch(CoroutineName("nested coroutine")) {
                                 try {
                                     delay(1000)
                                     printJobsHierarchy(scopeJob)
@@ -144,6 +138,4 @@ class Exercise7SolutionTest {
             println("test done")
         }
     }
-
-
 }

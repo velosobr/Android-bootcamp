@@ -9,8 +9,8 @@ import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.withContext
 
 class FetchAndCacheUsersUseCaseSolutionExercise9(
-        private val getUserEndpoint: GetUserEndpoint,
-        private val usersDao: UsersDao
+    private val getUserEndpoint: GetUserEndpoint,
+    private val usersDao: UsersDao
 ) {
 
     suspend fun fetchAndCacheUsers(userIds: List<String>): List<User> = withContext(Dispatchers.Default) {
@@ -22,5 +22,4 @@ class FetchAndCacheUsersUseCaseSolutionExercise9(
             }
         }.awaitAll()
     }
-
 }

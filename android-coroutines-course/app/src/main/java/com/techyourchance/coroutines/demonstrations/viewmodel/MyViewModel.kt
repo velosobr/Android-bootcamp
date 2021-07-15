@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.techyourchance.coroutines.common.ThreadInfoLogger
 import kotlinx.coroutines.*
 
-class MyViewModel: ViewModel() {
+class MyViewModel : ViewModel() {
     private val _elapsedTime = MutableLiveData<Long>()
     val elapsedTime: LiveData<Long> = _elapsedTime
 
@@ -47,5 +47,4 @@ class MyViewModel: ViewModel() {
     private fun logThreadInfo(message: String) {
         ThreadInfoLogger.logThreadInfo(message)
     }
-
 }

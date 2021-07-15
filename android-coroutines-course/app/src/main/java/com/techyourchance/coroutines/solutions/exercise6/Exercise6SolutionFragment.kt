@@ -68,7 +68,6 @@ class Exercise6SolutionFragment : BaseFragment() {
         coroutineScope.coroutineContext.cancelChildren()
     }
 
-
     private suspend fun updateRemainingTime(remainingTimeSeconds: Int) {
         for (time in remainingTimeSeconds downTo 0) {
             if (time > 0) {

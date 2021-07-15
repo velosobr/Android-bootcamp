@@ -39,13 +39,19 @@ class ViewModelDemoFragment : BaseFragment() {
             myViewModel.toggleTrackElapsedTime()
         }
 
-        myViewModel.elapsedTime.observe(viewLifecycleOwner, Observer { elapsedTime ->
-            txtElapsedTime.text = elapsedTime.toString()
-        })
+        myViewModel.elapsedTime.observe(
+            viewLifecycleOwner,
+            Observer { elapsedTime ->
+                txtElapsedTime.text = elapsedTime.toString()
+            }
+        )
 
-        myViewModel.isTrackingTime.observe(viewLifecycleOwner, Observer { isTrackingTime ->
-            btnTrackTime.text = if (isTrackingTime) { "Stop tracking" } else { "Start tracking" }
-        })
+        myViewModel.isTrackingTime.observe(
+            viewLifecycleOwner,
+            Observer { isTrackingTime ->
+                btnTrackTime.text = if (isTrackingTime) { "Stop tracking" } else { "Start tracking" }
+            }
+        )
 
         return view
     }

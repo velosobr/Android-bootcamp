@@ -13,5 +13,4 @@ class GetReputationUseCase(private val getReputationEndpoint: GetReputationEndpo
             getReputationEndpoint.getReputation(userId)
         }
     }
-
 }

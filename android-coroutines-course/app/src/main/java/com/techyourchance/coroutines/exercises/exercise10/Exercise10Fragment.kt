@@ -17,7 +17,6 @@ import com.techyourchance.coroutines.demonstrations.uncaughtexception.LoginUseCa
 import com.techyourchance.coroutines.demonstrations.uncaughtexception.LoginUseCaseUncaughtException.*
 import com.techyourchance.coroutines.home.ScreenReachableFromHome
 import kotlinx.coroutines.*
-import java.lang.Exception
 
 class Exercise10Fragment : BaseFragment() {
 
@@ -47,7 +46,7 @@ class Exercise10Fragment : BaseFragment() {
 
         refreshUiState()
 
-        edtUsername.addTextChangedListener(object: TextWatcher {
+        edtUsername.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -57,7 +56,7 @@ class Exercise10Fragment : BaseFragment() {
             override fun afterTextChanged(s: Editable?) {}
         })
 
-        edtPassword.addTextChangedListener(object: TextWatcher {
+        edtPassword.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -68,19 +67,19 @@ class Exercise10Fragment : BaseFragment() {
         })
 
         btnLogin.setOnClickListener {
-                coroutineScope.launch {
-                    try {
-                        btnLogin.isEnabled = false
-                        val result = loginUseCase.logIn(getUsername(), getPassword())
-                        when (result) {
-                            is Result.Success -> onUserLoggedIn(result.user)
-                            is Result.InvalidCredentials -> onInvalidCredentials()
-                            is Result.GeneralError -> onGeneralError()
-                        }
-                    } finally {
-                        refreshUiState()
+            coroutineScope.launch {
+                try {
+                    btnLogin.isEnabled = false
+                    val result = loginUseCase.logIn(getUsername(), getPassword())
+                    when (result) {
+                        is Result.Success -> onUserLoggedIn(result.user)
+                        is Result.InvalidCredentials -> onInvalidCredentials()
+                        is Result.GeneralError -> onGeneralError()
                     }
+                } finally {
+                    refreshUiState()
                 }
+            }
         }
 
         return view

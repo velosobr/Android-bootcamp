@@ -13,17 +13,17 @@ class AsyncCoroutineBuilderDemoTest {
 
             for (duration in 1..5) {
                 deferreds.add(
-                        async {
-                            val startTimeNano = System.nanoTime()
-                            var iterations = 0
-                            while (System.nanoTime() < startTimeNano + (duration * 10f.pow(9))) {
-                                iterations++
-                            }
-                            iterations
+                    async {
+                        val startTimeNano = System.nanoTime()
+                        var iterations = 0
+                        while (System.nanoTime() < startTimeNano + (duration * 10f.pow(9))) {
+                            iterations++
                         }
+                        iterations
+                    }
                 )
             }
-            
+
             var totalIterations = 0
             for (deferred in deferreds) {
                 totalIterations += deferred.await()

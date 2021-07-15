@@ -103,5 +103,4 @@ class ExceptionsInAsyncDemoTest {
         Thread.sleep(100)
         println("test completed")
     }
-
 }

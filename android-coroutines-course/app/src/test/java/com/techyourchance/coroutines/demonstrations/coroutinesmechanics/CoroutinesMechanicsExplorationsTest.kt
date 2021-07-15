@@ -1,13 +1,9 @@
 package com.techyourchance.coroutines.demonstrations.coroutinesmechanics
 
-import com.techyourchance.coroutines.common.TestUtils
 import com.techyourchance.coroutines.common.TestUtils.printCoroutineScopeInfo
 import com.techyourchance.coroutines.common.TestUtils.printJobsHierarchy
 import kotlinx.coroutines.*
-import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
-import java.lang.Exception
-import kotlin.coroutines.EmptyCoroutineContext
 
 class CoroutinesMechanicsExplorationsTest {
 
@@ -120,7 +116,6 @@ class CoroutinesMechanicsExplorationsTest {
         }
     }
 
-
     @Test
     fun coroutinesCancellationMechanicsNonCancellable() {
         runBlocking {
@@ -151,6 +146,4 @@ class CoroutinesMechanicsExplorationsTest {
             println("test done")
         }
     }
-
-
 }

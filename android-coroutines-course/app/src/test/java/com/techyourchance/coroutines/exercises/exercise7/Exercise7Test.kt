@@ -1,13 +1,7 @@
 package com.techyourchance.coroutines.exercises.exercise7
 
-import com.techyourchance.coroutines.common.TestUtils
-import com.techyourchance.coroutines.common.TestUtils.printCoroutineScopeInfo
-import com.techyourchance.coroutines.common.TestUtils.printJobsHierarchy
 import kotlinx.coroutines.*
-import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
-import java.lang.Exception
-import kotlin.coroutines.EmptyCoroutineContext
 
 class Exercise7Test {
 
@@ -20,7 +14,6 @@ class Exercise7Test {
         runBlocking {
             val scopeJob = Job()
             val scope = CoroutineScope(scopeJob + CoroutineName("outer scope") + Dispatchers.IO)
-
 
             scopeJob.join()
             println("test done")
@@ -37,7 +30,6 @@ class Exercise7Test {
             val scopeJob = Job()
             val scope = CoroutineScope(scopeJob + CoroutineName("outer scope") + Dispatchers.IO)
 
-
             scopeJob.join()
             println("test done")
         }
@@ -53,11 +45,8 @@ class Exercise7Test {
             val scopeJob = Job()
             val scope = CoroutineScope(scopeJob + CoroutineName("outer scope") + Dispatchers.IO)
 
-
             scopeJob.join()
             println("test done")
         }
     }
-
-
 }

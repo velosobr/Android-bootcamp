@@ -9,11 +9,11 @@ import java.util.concurrent.atomic.AtomicInteger
 
 class LoginEndpointUncaughtException {
 
-    class RequestTimeoutException(msg: String) : RuntimeException(msg) {}
+    class RequestTimeoutException(msg: String) : RuntimeException(msg)
 
     sealed class Response {
-        data class Success(val user: LoggedInUser): Response()
-        data class Failure(val statusCode: Int): Response()
+        data class Success(val user: LoggedInUser) : Response()
+        data class Failure(val statusCode: Int) : Response()
     }
 
     private var attemptsCounter = AtomicInteger(0)
@@ -26,11 +26,11 @@ class LoginEndpointUncaughtException {
         }
         if (attempt == 1) {
             return@withContext Response.Success(
-                    LoggedInUser(
-                            UUID.randomUUID().toString(),
-                            username,
-                            "authToken"
-                    )
+                LoggedInUser(
+                    UUID.randomUUID().toString(),
+                    username,
+                    "authToken"
+                )
             )
         } else {
             return@withContext Response.Failure(401)

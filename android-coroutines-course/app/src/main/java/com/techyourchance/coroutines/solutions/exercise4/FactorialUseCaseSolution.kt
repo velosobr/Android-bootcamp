@@ -1,10 +1,7 @@
 package com.techyourchance.coroutines.solutions.exercise4
 
-import java.math.BigInteger
-
-import androidx.annotation.WorkerThread
 import kotlinx.coroutines.*
-import java.util.concurrent.TimeUnit
+import java.math.BigInteger
 
 class FactorialUseCaseSolution {
 
@@ -13,7 +10,7 @@ class FactorialUseCaseSolution {
         object Timeout : Result()
     }
 
-    suspend fun computeFactorial(argument: Int, timeout: Int) : Result = withContext(Dispatchers.IO) {
+    suspend fun computeFactorial(argument: Int, timeout: Int): Result = withContext(Dispatchers.IO) {
         try {
             withTimeout(timeMillis = timeout.toLong()) {
                 val computationRanges = getComputationRanges(argument)
@@ -24,13 +21,12 @@ class FactorialUseCaseSolution {
 
                 Result.Success(result)
             }
-        } catch (e : TimeoutCancellationException) {
+        } catch (e: TimeoutCancellationException) {
             Result.Timeout
         }
-
     }
 
-    private fun getComputationRanges(factorialArgument: Int) : Array<ComputationRange> {
+    private fun getComputationRanges(factorialArgument: Int): Array<ComputationRange> {
         val numberOfThreads = getNumberOfThreads(factorialArgument)
 
         val threadsComputationRanges = Array(numberOfThreads) { ComputationRange(0, 0) }
@@ -41,8 +37,8 @@ class FactorialUseCaseSolution {
 
         for (i in numberOfThreads - 1 downTo 0) {
             threadsComputationRanges[i] = ComputationRange(
-                    nextComputationRangeEnd - computationRangeSize + 1,
-                    nextComputationRangeEnd
+                nextComputationRangeEnd - computationRangeSize + 1,
+                nextComputationRangeEnd
             )
             nextComputationRangeEnd = threadsComputationRanges[i].start - 1
         }
@@ -60,7 +56,7 @@ class FactorialUseCaseSolution {
             Runtime.getRuntime().availableProcessors()
     }
 
-    private suspend fun computePartialProducts(computationRanges: Array<ComputationRange>) : List<BigInteger> = coroutineScope {
+    private suspend fun computePartialProducts(computationRanges: Array<ComputationRange>): List<BigInteger> = coroutineScope {
         return@coroutineScope withContext(Dispatchers.IO) {
             return@withContext computationRanges.map {
                 computeProductForRangeAsync(it)
@@ -68,7 +64,7 @@ class FactorialUseCaseSolution {
         }
     }
 
-    private fun CoroutineScope.computeProductForRangeAsync(computationRange: ComputationRange) : Deferred<BigInteger> = async(Dispatchers.IO) {
+    private fun CoroutineScope.computeProductForRangeAsync(computationRange: ComputationRange): Deferred<BigInteger> = async(Dispatchers.IO) {
         val rangeStart = computationRange.start
         val rangeEnd = computationRange.end
 

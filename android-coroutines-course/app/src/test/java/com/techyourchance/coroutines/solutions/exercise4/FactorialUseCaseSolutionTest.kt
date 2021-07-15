@@ -59,6 +59,4 @@ class FactorialUseCaseSolutionTest {
             assertThat((result as FactorialUseCaseSolution.Result.Success).result, `is`(BigInteger("265252859812191058636308480000000")))
         }
     }
-
-
 }
