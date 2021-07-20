@@ -22,7 +22,11 @@ class BackgroundThreadDemoFragment : BaseFragment() {
     private lateinit var btnStart: Button
     private lateinit var txtRemainingTime: TextView
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val view = inflater.inflate(R.layout.fragment_loop_iterations_demo, container, false)
 
         txtRemainingTime = view.findViewById(R.id.txt_remaining_time)
@@ -47,14 +51,12 @@ class BackgroundThreadDemoFragment : BaseFragment() {
             logThreadInfo("benchmark started")
 
             val stopTimeNano = System.nanoTime() + benchmarkDurationSeconds * 1_000_000_000L
-
             var iterationsCount: Long = 0
             while (System.nanoTime() < stopTimeNano) {
                 iterationsCount++
             }
 
             logThreadInfo("benchmark completed")
-
             Handler(Looper.getMainLooper()).post {
                 Toast.makeText(requireContext(), "$iterationsCount", Toast.LENGTH_SHORT).show()
             }
