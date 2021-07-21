@@ -80,3 +80,7 @@ RecyclerView
     - https://www.geeksforgeeks.org/how-to-create-recyclerview-with-multiple-viewtype-in-android/
     - https://stackoverflow.com/questions/30752980/add-two-sections-in-recyclerview-android/36846783
     - https://www.youtube.com/watch?v=x5afKIu0JmY
+
+  -DiffCalback lists
+      - https://www.raywenderlich.com/21954410-speed-up-your-android-recyclerview-using-diffutil#toc-anchor-002
+
