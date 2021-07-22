@@ -40,7 +40,10 @@ class BasicCoroutinesDemoFragment : BaseFragment() {
         btnStart.setOnClickListener {
             logThreadInfo("button callback")
             btnStart.isEnabled = false
-            coroutineScope.launch { executeBenchmark() }
+            coroutineScope.launch {
+                val iterationsCount = executeBenchmark()
+                Toast.makeText(requireContext(), "$iterationsCount", Toast.LENGTH_SHORT).show()
+            }
 
             btnStart.isEnabled = true
         }
@@ -48,11 +51,11 @@ class BasicCoroutinesDemoFragment : BaseFragment() {
         return view
     }
 
-    private suspend fun executeBenchmark() {
+    private suspend fun executeBenchmark(): Long {
         val benchmarkDurationSeconds = 5
 
         updateRemainingTime(benchmarkDurationSeconds)
-        val iterationsCount = withContext(Dispatchers.Default) {
+        return withContext(Dispatchers.Default) {
             logThreadInfo("benchmark started")
 
             val stopTimeNano = System.nanoTime() + benchmarkDurationSeconds * 1_000_000_000L
@@ -65,7 +68,6 @@ class BasicCoroutinesDemoFragment : BaseFragment() {
             logThreadInfo("benchmark completed")
             iterationsCount
         }
-        Toast.makeText(requireContext(), "$iterationsCount", Toast.LENGTH_SHORT).show()
     }
 
     private fun updateRemainingTime(remainingTimeSeconds: Int) {
