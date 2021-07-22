@@ -1,12 +1,12 @@
-package co.tiagoaguiar.evernotekt
+package co.tiagoaguiar.evernotekt.view.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import co.tiagoaguiar.evernotekt.model.Note
+import co.tiagoaguiar.evernotekt.R
+import co.tiagoaguiar.evernotekt.data.model.Note
 import kotlinx.android.synthetic.main.list_item_note.view.*
-
 
 class NoteAdapter(
     private val notes: List<Note>,
@@ -42,7 +42,5 @@ class NoteAdapter(
                 }
             }
         }
-
     }
-
 }

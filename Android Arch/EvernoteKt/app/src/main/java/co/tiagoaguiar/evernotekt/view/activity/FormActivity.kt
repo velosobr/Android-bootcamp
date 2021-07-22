@@ -1,4 +1,4 @@
-package co.tiagoaguiar.evernotekt
+package co.tiagoaguiar.evernotekt.view.activity
 
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
@@ -10,24 +10,25 @@ import android.widget.Toast
 import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import co.tiagoaguiar.evernotekt.model.Note
-import co.tiagoaguiar.evernotekt.model.RemoteDataSource
+import co.tiagoaguiar.evernotekt.R
+import co.tiagoaguiar.evernotekt.data.model.Note
+import co.tiagoaguiar.evernotekt.data.model.RemoteDataSource
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.observers.DisposableObserver
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_form.*
 import kotlinx.android.synthetic.main.content_form.*
 import retrofit2.Callback
 import retrofit2.Response
 
-/**
- *
- * Setembro, 24 2019
- * @author suporte@moonjava.com.br (Tiago Aguiar).
- */
 class FormActivity : AppCompatActivity(), TextWatcher {
 
     private var toSave: Boolean = false
     private var noteId: Int? = null
 
     private val dataSource = RemoteDataSource()
+    private val compositeDisposable = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,9 +46,52 @@ class FormActivity : AppCompatActivity(), TextWatcher {
         }
     }
 
-    private fun getNote(noteId: Int) {
-        dataSource.getNote(noteId, callback)
+    override fun onStop() {
+        super.onStop()
+        compositeDisposable.clear()
     }
+
+    private fun getNote(noteId: Int) {
+        val disposable = dataSource.getNote(noteId)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeWith(getNoteObserver)
+
+        compositeDisposable.addAll(disposable)
+    }
+
+    private val getNoteObserver: DisposableObserver<Note>
+        get() = object : DisposableObserver<Note>() {
+            override fun onNext(note: Note) {
+                displayNote(note)
+            }
+
+            override fun onError(e: Throwable) {
+                e.printStackTrace()
+                displayError("Erro ao criar nota")
+            }
+
+            override fun onComplete() {
+                println("complete")
+            }
+        }
+
+    private val createNoteObserver: DisposableObserver<Note>
+        get() = object : DisposableObserver<Note>() {
+
+            override fun onNext(t: Note) {
+                finish()
+            }
+
+            override fun onError(e: Throwable) {
+                e.printStackTrace()
+                displayError("Erro ao criar nota")
+            }
+
+            override fun onComplete() {
+                TODO("Not yet implemented")
+            }
+        }
 
     private fun setupViews() {
         setSupportActionBar(toolbar)
@@ -72,27 +116,6 @@ class FormActivity : AppCompatActivity(), TextWatcher {
         }
     }
 
-
-    private val callback: Callback<Note>
-        get() = object : Callback<Note> {
-
-            override fun onFailure(call: retrofit2.Call<Note>, t: Throwable) {
-                t.printStackTrace()
-                displayError("Erro ao carregar nota")
-            }
-
-            override fun onResponse(
-                call: retrofit2.Call<Note>,
-                response: Response<Note>
-            ) {
-                if (response.isSuccessful) {
-                    val note = response.body()
-                    displayNote(note)
-                }
-            }
-
-        }
-
     private val callbackCreate: Callback<Note>
         get() = object : Callback<Note> {
 
@@ -109,7 +132,6 @@ class FormActivity : AppCompatActivity(), TextWatcher {
                     finish()
                 }
             }
-
         }
 
     fun displayError(message: String) {
@@ -130,7 +152,6 @@ class FormActivity : AppCompatActivity(), TextWatcher {
         }
     }
 
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
             return if (toSave && noteId == null) {
@@ -138,7 +159,7 @@ class FormActivity : AppCompatActivity(), TextWatcher {
                 note.title = note_title.text.toString()
                 note.body = note_editor.text.toString()
 
-                dataSource.createNote(note, callbackCreate)
+                dataSource.createNote(note)
 
                 true
             } else {
@@ -165,5 +186,4 @@ class FormActivity : AppCompatActivity(), TextWatcher {
 
     override fun afterTextChanged(editable: Editable) {
     }
-
 }
