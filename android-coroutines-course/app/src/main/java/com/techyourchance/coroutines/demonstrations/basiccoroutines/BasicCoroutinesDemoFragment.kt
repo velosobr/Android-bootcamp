@@ -52,7 +52,7 @@ class BasicCoroutinesDemoFragment : BaseFragment() {
         val benchmarkDurationSeconds = 5
 
         updateRemainingTime(benchmarkDurationSeconds)
-        withContext(Dispatchers.Default) {
+        val iterationsCount = withContext(Dispatchers.Default) {
             logThreadInfo("benchmark started")
 
             val stopTimeNano = System.nanoTime() + benchmarkDurationSeconds * 1_000_000_000L
@@ -63,11 +63,9 @@ class BasicCoroutinesDemoFragment : BaseFragment() {
             }
 
             logThreadInfo("benchmark completed")
-
-            withContext(Dispatchers.Main.immediate) {
-                Toast.makeText(requireContext(), "$iterationsCount", Toast.LENGTH_SHORT).show()
-            }
+            iterationsCount
         }
+        Toast.makeText(requireContext(), "$iterationsCount", Toast.LENGTH_SHORT).show()
     }
 
     private fun updateRemainingTime(remainingTimeSeconds: Int) {
