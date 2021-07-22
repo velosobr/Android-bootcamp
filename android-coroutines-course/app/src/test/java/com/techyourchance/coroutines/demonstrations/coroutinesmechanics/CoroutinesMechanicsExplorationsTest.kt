@@ -5,7 +5,7 @@ import com.techyourchance.coroutines.common.TestUtils.printJobsHierarchy
 import kotlinx.coroutines.*
 import org.junit.Test
 
-class CoroutinesMechanicsExplorationsTest {
+class  CoroutinesMechanicsExplorationsTest {
 
     @Test
     fun coroutineScope_launch() {
