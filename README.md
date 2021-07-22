@@ -52,6 +52,9 @@ ViewBinding
  - https://proandroiddev.com/viewbinding-with-kotlin-property-delegate-c907682e24c9
  - https://medium.com/androiddevelopers/use-view-binding-to-replace-findviewbyid-c83942471fc
 
+ViewModel
+- meneira correta de instanciar um ViewModel - https://www.youtube.com/watch?v=_T8ln2ig5hE&ab_channel=DouglasMotta
+
 Navigation
   - https://medium.com/androiddevelopers/multiple-back-stacks-b714d974f134
   - https://medium.com/androiddevelopers/navigation-multiple-back-stacks-6c67ba41952f
