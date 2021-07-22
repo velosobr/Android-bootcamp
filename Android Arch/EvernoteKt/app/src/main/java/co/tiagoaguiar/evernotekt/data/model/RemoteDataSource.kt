@@ -1,11 +1,9 @@
-package co.tiagoaguiar.evernotekt.model
+package co.tiagoaguiar.evernotekt.data.model
 
-import android.bluetooth.le.ScanRecord
-import co.tiagoaguiar.evernotekt.network.RetrofitClient
+import co.tiagoaguiar.evernotekt.data.network.RetrofitClient
+import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import io.reactivex.Observable
-import java.util.*
 
 class RemoteDataSource {
 
@@ -15,19 +13,15 @@ class RemoteDataSource {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
 
-
     fun getNote(noteId: Int): Observable<Note> =
         RetrofitClient.evernoteApi
             .getNote(noteId)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
 
-
     fun createNote(note: Note): Observable<Note> =
         RetrofitClient.evernoteApi
             .createNote(note)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-
-
 }

@@ -1,4 +1,4 @@
-package co.tiagoaguiar.evernotekt.network
+package co.tiagoaguiar.evernotekt.data.network
 
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -19,5 +19,4 @@ object RetrofitClient {
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .build()
         .create(EvernoteAPI::class.java)
-
 }

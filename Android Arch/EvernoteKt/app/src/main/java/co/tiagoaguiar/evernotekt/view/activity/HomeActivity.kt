@@ -1,4 +1,4 @@
-package co.tiagoaguiar.evernotekt
+package co.tiagoaguiar.evernotekt.view.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,34 +8,26 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import co.tiagoaguiar.evernotekt.model.Note
-import co.tiagoaguiar.evernotekt.model.RemoteDataSource
+import co.tiagoaguiar.evernotekt.R
+import co.tiagoaguiar.evernotekt.data.model.Note
+import co.tiagoaguiar.evernotekt.view.adapters.NoteAdapter
+import co.tiagoaguiar.evernotekt.viewmodel.HomeViewModel
 import com.google.android.material.navigation.NavigationView
-import io.reactivex.Observable
-import io.reactivex.Observer
-import io.reactivex.Scheduler
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.disposables.Disposable
-import io.reactivex.observers.DisposableObserver
-import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.content_home.*
-import retrofit2.Callback
-import retrofit2.Response
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    private val dataSource = RemoteDataSource()
-    private val compositeDisposable = CompositeDisposable()
+    lateinit var viewModel: HomeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-
+        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         setupViews()
     }
 
@@ -66,82 +58,16 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onStart() {
         super.onStart()
         getAllNotes()
-        /**
-        THEORY PART
-        val subscriber = createSubscriber()
-
-        val channel = createChannel()
-        .subscribeOn(Schedulers.io())
-        .observeOn(AndroidSchedulers.mainThread())
-        .subscribe(subscriber)
-         */
-
     }
 
     override fun onStop() {
         super.onStop()
-        compositeDisposable.clear()
-
+//        compositeDisposable.clear()
     }
 
     private fun getAllNotes() {
-        val disposable = dataSource.listNotes()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribeWith(notesObserver)
-
-        compositeDisposable.addAll(disposable)
+        viewModel
     }
-
-    /**
-    THEORY PART
-    fun createChannel(): Observable<String> {
-    return Observable.create { emitter ->
-    println(Thread.currentThread().name)
-    emitter.onNext("Bem vindo ao canal")
-    emitter.onComplete()
-    }
-    }
-
-    fun createSubscriber(): Observer<String> {
-    return object : Observer<String> {
-    override fun onSubscribe(d: Disposable) {
-    println("inscrição completada")
-    }
-
-    override fun onNext(t: String) {
-    println("novo valor é: $t")
-    }
-
-    override fun onError(e: Throwable) {
-    println("novo valor error ${e.message}")
-    }
-
-    override fun onComplete() {
-    println("Novo valor emitido")
-    println("oncomplete - " + Thread.currentThread().name)
-    }
-    }
-    }
-     */
-
-
-    private val notesObserver: DisposableObserver<List<Note>>
-        get() = object : DisposableObserver<List<Note>>() {
-            override fun onNext(note: List<Note>) {
-                displayNotes(note)
-
-            }
-
-            override fun onError(e: Throwable) {
-                e.printStackTrace()
-                displayError("Erro ao carregar notas")
-            }
-
-            override fun onComplete() {
-                println("complete")
-            }
-        }
 
     fun displayError(message: String) {
         showToast(message)
@@ -194,5 +120,4 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }
-
 }

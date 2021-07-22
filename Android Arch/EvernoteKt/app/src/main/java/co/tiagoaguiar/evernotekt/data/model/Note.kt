@@ -1,4 +1,4 @@
-package co.tiagoaguiar.evernotekt.model
+package co.tiagoaguiar.evernotekt.data.model
 
 import java.text.ParseException
 import java.text.SimpleDateFormat
@@ -20,7 +20,7 @@ data class Note(
         get() {
             return try {
                 val locale = Locale("pt", "BR")
-                val date = SimpleDateFormat("dd/MM/yyyy", locale).parse(date ?:"")
+                val date = SimpleDateFormat("dd/MM/yyyy", locale).parse(date ?: "")
 
                 SimpleDateFormat("MMM yyyy", locale).format(date).capitalize()
             } catch (e: ParseException) {
