@@ -16,10 +16,12 @@ import com.techyourchance.coroutines.common.ThreadInfoLogger
 import com.techyourchance.coroutines.home.ScreenReachableFromHome
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class BasicCoroutinesDemoFragment : BaseFragment() {
 
-m
+    private val coroutineScope = CoroutineScope(Dispatchers.Main.immediate)
     override val screenTitle get() = ScreenReachableFromHome.BASIC_COROUTINES_DEMO.description
 
     private lateinit var btnStart: Button
@@ -38,31 +40,34 @@ m
         btnStart.setOnClickListener {
             logThreadInfo("button callback")
             btnStart.isEnabled = false
-            val iterationsCount = executeBenchmark()
-            Toast.makeText(requireContext(), "$iterationsCount", Toast.LENGTH_SHORT).show()
+            executeBenchmark()
+
             btnStart.isEnabled = true
         }
 
         return view
     }
 
-    private fun executeBenchmark(): Long {
+    private fun executeBenchmark() {
         val benchmarkDurationSeconds = 5
 
         updateRemainingTime(benchmarkDurationSeconds)
+        coroutineScope.launch(Dispatchers.Default) {
+            logThreadInfo("benchmark started")
 
-        logThreadInfo("benchmark started")
+            val stopTimeNano = System.nanoTime() + benchmarkDurationSeconds * 1_000_000_000L
 
-        val stopTimeNano = System.nanoTime() + benchmarkDurationSeconds * 1_000_000_000L
+            var iterationsCount: Long = 0
+            while (System.nanoTime() < stopTimeNano) {
+                iterationsCount++
+            }
 
-        var iterationsCount: Long = 0
-        while (System.nanoTime() < stopTimeNano) {
-            iterationsCount++
+            logThreadInfo("benchmark completed")
+
+            withContext(Dispatchers.Main.immediate) {
+                Toast.makeText(requireContext(), "$iterationsCount", Toast.LENGTH_SHORT).show()
+            }
         }
-
-        logThreadInfo("benchmark completed")
-
-        return iterationsCount
     }
 
     private fun updateRemainingTime(remainingTimeSeconds: Int) {
