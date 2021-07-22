@@ -40,7 +40,7 @@ class BasicCoroutinesDemoFragment : BaseFragment() {
         btnStart.setOnClickListener {
             logThreadInfo("button callback")
             btnStart.isEnabled = false
-            executeBenchmark()
+            coroutineScope.launch { executeBenchmark() }
 
             btnStart.isEnabled = true
         }
@@ -48,11 +48,11 @@ class BasicCoroutinesDemoFragment : BaseFragment() {
         return view
     }
 
-    private fun executeBenchmark() {
+    private suspend fun executeBenchmark() {
         val benchmarkDurationSeconds = 5
 
         updateRemainingTime(benchmarkDurationSeconds)
-        coroutineScope.launch(Dispatchers.Default) {
+        withContext(Dispatchers.Default) {
             logThreadInfo("benchmark started")
 
             val stopTimeNano = System.nanoTime() + benchmarkDurationSeconds * 1_000_000_000L
