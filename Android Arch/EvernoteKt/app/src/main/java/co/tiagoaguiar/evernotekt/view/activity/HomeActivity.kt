@@ -57,7 +57,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onStart() {
         super.onStart()
-        getAllNotes()
+        observeAllNotes()
     }
 
     override fun onStop() {
@@ -65,8 +65,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 //        compositeDisposable.clear()
     }
 
-    private fun getAllNotes() {
-        viewModel
+    private fun observeAllNotes() {
+        viewModel.getAllNotes()
     }
 
     fun displayError(message: String) {
