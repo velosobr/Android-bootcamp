@@ -23,6 +23,10 @@ Design Patterns
   - https://github.com/dbacinski/Design-Patterns-In-Kotlin
   - https://blog.mindorks.com/mastering-design-patterns-in-android-with-kotlin
   - https://www.raywenderlich.com/18409174-common-design-patterns-and-app-architectures-for-android
+
+Git
+  - revert branch deleted -> https://gist.github.com/jbgo/1944238
+  
 Ktlint 
   - https://www.youtube.com/watch?v=YmZIkUGnCco&ab_channel=goobar
   - https://ktlint.github.io/#getting-started
