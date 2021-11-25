@@ -8,7 +8,7 @@ class MovieRepository @Inject constructor(
     private val apiService: ApiService
 ) {
 
-    suspend fun getPopularMovies(page: Int): List<MovieItem> {
-        return apiService.getPopularMovies(page = page).body()?.movieItems ?: emptyList()
+    suspend fun getPopularMovies(page: Int): List<MovieItem>? {
+        return apiService.getPopularMovies(page = page).body()?.movieItems
     }
 }
