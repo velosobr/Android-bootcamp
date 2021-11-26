@@ -3,6 +3,7 @@ package com.ragnlabs.movies
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.ragnlabs.movies.adapter.MoviesAdapter
 import com.ragnlabs.movies.databinding.ActivityMainBinding
 import com.ragnlabs.movies.viewmodels.MoviesViewModel
@@ -26,10 +27,17 @@ class MainActivity : AppCompatActivity() {
     private fun loadMoviesRecyclerView() {
         moviesAdapter = MoviesAdapter()
 
-        binding.recyclerView
-        viewModel.popularMoviesLiveData.observe(this, { moviesList ->
+        binding.moviesListRecyclerView.apply {
+            adapter = moviesAdapter
+            layoutManager = LinearLayoutManager(
+                this@MainActivity, LinearLayoutManager.HORIZONTAL,
+                false
+            )
+            setHasFixedSize(true)
+        }
+        viewModel.popularMoviesList.observe(this, { moviesList ->
 
-            moviesAdapter.moviesList = moviesList
+            moviesAdapter.movies = moviesList
         })
     }
 }
