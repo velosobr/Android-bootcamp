@@ -1,7 +1,7 @@
 package com.ragnlabs.movies.di
 
 import com.ragnlabs.movies.api.ApiService
-import com.ragnlabs.movies.helper.LocalData
+import com.ragnlabs.movies.util.LocalData
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

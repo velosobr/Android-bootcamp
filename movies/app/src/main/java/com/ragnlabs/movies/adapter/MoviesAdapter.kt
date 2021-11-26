@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.ragnlabs.movies.databinding.MovieItemBinding
-import com.ragnlabs.movies.helper.LocalData
+import com.ragnlabs.movies.util.LocalData
 import com.ragnlabs.movies.models.Movie
 
 class MoviesAdapter() :
