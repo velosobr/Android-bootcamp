@@ -30,7 +30,10 @@
 
 package com.raywenderlich.android.ui.home
 
+import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.raywenderlich.android.domain.repository.WeatherRepository
 import com.raywenderlich.android.ui.home.mapper.HomeViewStateMapper
@@ -39,6 +42,7 @@ import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.async
 import kotlinx.coroutines.channels.BroadcastChannel
 import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
 private const val SEARCH_DELAY_MILLIS = 500L
@@ -52,6 +56,31 @@ class HomeViewModel(
 ) : ViewModel() {
 
     val queryChannel = BroadcastChannel<String>(Channel.CONFLATED)
+    private val _locations = queryChannel
+        .asFlow()
+        .debounce(SEARCH_DELAY_MILLIS)
+        .mapLatest {
+            if (it.length >= MIN_QUERY_LENGTH) {
+                getLocations(it)
+            } else {
+                emptyList()
+            }
+        }
+        .catch {
+            // Log Error
+        }
+    val locations = _locations.asLiveData()
+
+
+    val forecasts: LiveData<List<ForecastViewState>> = weatherRepository
+        .getForecasts()
+        .map {
+            homeViewStateMapper.mapForecastsToViewState(it)
+        }
+        .catch {
+            Log.e("forecast_error", "something happen")
+        }
+        .asLiveData()
 
     private suspend fun getLocations(query: String): List<LocationViewState> {
         val locations = viewModelScope.async { weatherRepository.findLocation(query) }
