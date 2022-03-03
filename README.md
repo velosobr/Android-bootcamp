@@ -5,6 +5,9 @@ Best practices in Android development
   - https://github.com/futurice/android-best-practices
 
 Archtecture
+  - MVI
+    - https://proandroiddev.com/mvi-architecture-with-kotlin-flows-and-channels-d36820b2028d
+    - https://proandroiddev.com/getting-started-with-mvi-architecture-on-android-b2c280b7023 
   - MVP
     - https://medium.com/mindorks/android-mvp-pattern-debunked-for-beginners-kotlin-c56c888222e0
     - https://github.com/nikhilbansal97/SampleMVP
