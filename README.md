@@ -91,6 +91,9 @@ RecyclerView
     - https://stackoverflow.com/questions/30752980/add-two-sections-in-recyclerview-android/36846783
     - https://www.youtube.com/watch?v=x5afKIu0JmY
 
-  -DiffCalback lists
+  - DiffCalback lists
       - https://www.raywenderlich.com/21954410-speed-up-your-android-recyclerview-using-diffutil#toc-anchor-002
+  - Overengineering
+    - https://www.quantcast.com/blog/death-by-1000-layers-the-perils-of-over-abstraction-in-java/
+
 
